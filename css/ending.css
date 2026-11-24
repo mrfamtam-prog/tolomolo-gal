@@ -275,3 +275,13 @@
         animation: none !important;
     }
 }
+
+
+/* ENDING TEXT CONTRAST FIX — append at the end of existing ending.css */
+.ending-title { color: #a94470; }
+.ending-title span { color: #c76b96; }
+.ending-message { color: #684f61; }
+.ending-message strong { color: #a3446e; }
+.ending-final-note { color: #a3446e; }
+.ending-footer { color: #73566a; }
+
