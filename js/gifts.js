@@ -8,68 +8,106 @@ document.addEventListener("DOMContentLoaded", () => {
     "use strict";
 
     const giftCards = document.querySelectorAll(".gift-card");
-    const giftMessage = document.getElementById("gift-message");
+    const giftMessageContainer = document.getElementById(
+        "gift-message-container"
+    );
 
-    if (!giftCards.length || !giftMessage) return;
+    const messageEmoji = document.getElementById("gift-message-emoji");
+    const messageTitle = document.getElementById("gift-message-title");
+    const messageText = document.getElementById("gift-message-text");
 
-    // Individual messages for each gift
+    const closeButton = document.getElementById("close-gift-message");
+    const resetButton = document.getElementById("gift-reset-btn");
+
+    if (
+        !giftCards.length ||
+        !giftMessageContainer ||
+        !messageEmoji ||
+        !messageTitle ||
+        !messageText
+    ) {
+        console.warn("Gift section elements are missing.");
+        return;
+    }
+
     const giftMessages = {
         bunny: {
-            title: "A Little Bunny Surprise! 🐰",
+            emoji: "🐰",
+            title: "A Little Bunny Surprise!",
             message:
                 "Just like this cute bunny, may your days always be filled with joy, kindness and little moments that make you smile."
         },
 
         teddy: {
-            title: "A Teddy Bear Hug! 🧸",
+            emoji: "🧸",
+            title: "A Teddy Bear Surprise!",
             message:
                 "A little reminder that good friends make ordinary days special. Wishing you lots of happiness and wonderful memories."
         },
 
         kitty: {
-            title: "A Cute Kitty Surprise! 🐱",
+            emoji: "🐱",
+            title: "A Cute Kitty Surprise!",
             message:
                 "May your curiosity always lead you to exciting adventures, new discoveries and plenty of reasons to smile."
         },
 
         rainbow: {
-            title: "Your Little Rainbow! 🌈",
+            emoji: "🌈",
+            title: "Your Little Rainbow!",
             message:
                 "Just like a rainbow after the rain, may every new day bring fresh hope, happiness and beautiful opportunities."
         }
     };
 
-    // Display a gift message
-    function showGiftMessage(giftType) {
+    function openGiftMessage(giftType) {
         const selectedGift = giftMessages[giftType];
 
         if (!selectedGift) return;
 
-        giftMessage.replaceChildren();
+        messageEmoji.textContent = selectedGift.emoji;
+        messageTitle.textContent = selectedGift.title;
+        messageText.textContent = selectedGift.message;
 
-        const heading = document.createElement("h3");
-        heading.textContent = selectedGift.title;
+        giftMessageContainer.hidden = false;
+        giftMessageContainer.classList.add("is-visible");
 
-        const paragraph = document.createElement("p");
-        paragraph.textContent = selectedGift.message;
+        const messageCard =
+            giftMessageContainer.querySelector(".gift-message-card");
 
-        giftMessage.append(heading, paragraph);
+        if (messageCard) {
+            messageCard.classList.add("is-visible");
+        }
 
-        giftMessage.classList.add("is-visible");
-
-        giftMessage.scrollIntoView({
+        giftMessageContainer.scrollIntoView({
             behavior: "smooth",
-            block: "nearest"
+            block: "center"
         });
+
+        if (closeButton) {
+            closeButton.focus({ preventScroll: true });
+        }
     }
 
-    // Handle each gift button
+    function closeGiftMessage() {
+        giftMessageContainer.classList.remove("is-visible");
+
+        const messageCard =
+            giftMessageContainer.querySelector(".gift-message-card");
+
+        if (messageCard) {
+            messageCard.classList.remove("is-visible");
+        }
+
+        giftMessageContainer.hidden = true;
+    }
+
     giftCards.forEach(card => {
-        const button = card.querySelector(".gift-open-btn");
+        const button = card.querySelector(".gift-box");
 
         if (!button) return;
 
-        const giftType = card.dataset.gift;
+        const giftType = button.dataset.gift;
 
         if (!giftMessages[giftType]) {
             button.disabled = true;
@@ -79,27 +117,32 @@ document.addEventListener("DOMContentLoaded", () => {
         button.setAttribute("aria-expanded", "false");
 
         button.addEventListener("click", () => {
-            const isAlreadyOpened =
-                card.classList.contains("is-opened");
+            openGiftMessage(giftType);
 
-            if (isAlreadyOpened) {
-                card.classList.remove("is-opened");
-
-                button.textContent = "Tap to Open";
-                button.setAttribute("aria-expanded", "false");
-
-                return;
-            }
-
-            // Open selected gift
             card.classList.add("is-opened");
-
-            button.textContent = "Opened ✓";
+            button.classList.add("is-opened");
             button.setAttribute("aria-expanded", "true");
 
-            // Show its corresponding message
-            showGiftMessage(giftType);
+            const openText = button.querySelector(".gift-open-text");
+
+            if (openText) {
+                openText.textContent = "Opened ✓";
+            }
         });
     });
 
+    if (closeButton) {
+        closeButton.addEventListener("click", closeGiftMessage);
+    }
+
+    if (resetButton) {
+        resetButton.addEventListener("click", () => {
+            closeGiftMessage();
+
+            document.getElementById("gifts-section").scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        });
+    }
 });
