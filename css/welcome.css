@@ -68,3 +68,10 @@
     .welcome-content, .welcome-background .flower, .welcome-background .butterfly, #welcome-section::before, #welcome-section::after { animation: none !important; }
     #explore-btn, .explore-button { transition: none; }
 }
+
+/* WELCOME TEXT CONTRAST FIX — append at the end of existing welcome.css */
+.welcome-tag { color: #9d4c72; }
+.welcome-title { color: #a94470; }
+.welcome-title span { color: #c76b96; }
+.welcome-description { color: #684f61; }
+#welcome-section .welcome-container { color: #684f61; }
