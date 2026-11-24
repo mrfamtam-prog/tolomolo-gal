@@ -2,43 +2,63 @@
 /* =========================================
    NASIA SURPRISE WEBSITE
    PHASE 3: PHOTO GALLERY
+   Corrected to match index.html
 ========================================= */
 
 #gallery-section {
     position: relative;
     padding: 100px 20px;
     overflow: hidden;
+
     background:
         radial-gradient(circle at 10% 20%, #fff 0, transparent 30%),
         linear-gradient(145deg, #fff7fb, #ffeaf2, #fff5f9);
 }
 
-.gallery-container {
+/* Main container */
+
+#gallery-section .section-container {
+    position: relative;
     width: min(1100px, 100%);
     margin: auto;
     text-align: center;
+    z-index: 2;
 }
 
-.gallery-heading {
-    margin-bottom: 15px;
+/* Section heading */
+
+#gallery-section .section-heading {
+    margin-bottom: 45px;
+}
+
+#gallery-section .section-eyebrow {
+    display: inline-block;
+    margin-bottom: 12px;
+
+    color: #d17b9e;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+#gallery-section .section-heading h2 {
+    margin-bottom: 12px;
     color: #b94f7e;
     font-size: clamp(34px, 5vw, 52px);
     font-weight: 800;
 }
 
-.gallery-subtitle {
+#gallery-section .section-heading h2 span {
+    display: inline-block;
+}
+
+#gallery-section .section-heading p {
     max-width: 600px;
-    margin: 0 auto 55px;
+    margin: 0 auto;
+
     color: #856477;
     font-size: 16px;
     line-height: 1.8;
-}
-
-.gallery-decoration {
-    margin-bottom: 18px;
-    color: #e18bad;
-    font-size: 25px;
-    letter-spacing: 10px;
 }
 
 /* Gallery grid */
@@ -47,6 +67,7 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 35px;
+
     max-width: 850px;
     margin: auto;
     align-items: start;
@@ -56,10 +77,10 @@
 
 .gallery-card {
     position: relative;
+    min-width: 0;
     padding: 13px 13px 25px;
-    overflow: hidden;
 
-    background: rgba(255, 255, 255, .88);
+    background: rgba(255, 255, 255, .9);
     border: 1px solid #f8d6e4;
     border-radius: 22px;
 
@@ -71,34 +92,39 @@
 }
 
 .gallery-card:nth-child(1) {
-    transform: rotate(-2deg);
+    transform: rotate(-1.5deg);
 }
 
 .gallery-card:nth-child(2) {
-    transform: rotate(2deg);
+    transform: rotate(1.5deg);
 }
 
 .gallery-card:hover {
-    transform: translateY(-10px) rotate(0deg);
+    transform: translateY(-8px) rotate(0deg);
     box-shadow: 0 22px 45px rgba(190, 105, 145, .2);
 }
 
-/* Photo */
+/* Image wrapper */
 
 .gallery-image-wrapper {
     position: relative;
     width: 100%;
     aspect-ratio: 4 / 5;
     overflow: hidden;
+
     border-radius: 14px;
     background: #ffe5ef;
 }
+
+/* Main image */
 
 .gallery-image {
     display: block;
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+    object-position: center;
 
     transition: transform .6s ease;
 }
@@ -107,27 +133,73 @@
     transform: scale(1.06);
 }
 
-/* Photo number */
+/* Image overlay */
 
-.gallery-number {
+.gallery-image-overlay {
     position: absolute;
-    top: 12px;
-    left: 12px;
-    z-index: 2;
+    inset: 0;
 
-    padding: 7px 12px;
-    color: #a84d75;
-    background: rgba(255, 255, 255, .88);
-    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    font-size: 12px;
-    font-weight: 700;
+    background: rgba(70, 25, 48, .22);
+    opacity: 0;
+
+    transition: opacity .3s ease;
 }
 
-/* Caption */
+.gallery-image-wrapper:hover .gallery-image-overlay,
+.gallery-image-wrapper:focus-within .gallery-image-overlay {
+    opacity: 1;
+}
+
+/* View photo button */
+
+.view-photo-btn {
+    padding: 12px 24px;
+
+    color: white;
+    background: linear-gradient(135deg, #e88bb2, #c65d91);
+    border: 1px solid rgba(255, 255, 255, .6);
+    border-radius: 30px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transform: translateY(10px);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.gallery-image-wrapper:hover .view-photo-btn,
+.gallery-image-wrapper:focus-within .view-photo-btn {
+    transform: translateY(0);
+}
+
+.view-photo-btn:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .2);
+}
+
+.view-photo-btn:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 4px;
+}
+
+/* Photo captions */
 
 .gallery-caption {
     padding: 20px 8px 0;
+}
+
+.caption-decoration {
+    display: block;
+    margin-bottom: 8px;
+
+    color: #e78fb3;
+    font-size: 23px;
 }
 
 .gallery-caption h3 {
@@ -143,35 +215,123 @@
     line-height: 1.8;
 }
 
-/* Little decorative heart/flower */
+/* =========================================
+   GALLERY LIGHTBOX
+========================================= */
 
-.gallery-sparkle {
-    display: inline-block;
-    margin-top: 12px;
-    color: #e78fb3;
-    font-size: 20px;
+.gallery-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    padding: 65px 20px 25px;
+
+    background: rgba(35, 18, 29, .94);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
-/* Friendly message below gallery */
-
-.gallery-footer {
-    max-width: 650px;
-    margin: 60px auto 0;
-    padding: 27px 25px;
-
-    color: #805d70;
-    background: rgba(255, 255, 255, .7);
-    border: 1px solid #f8d7e5;
-    border-radius: 20px;
-
-    font-size: 16px;
-    line-height: 1.9;
-    box-shadow: 0 8px 25px rgba(190, 105, 145, .08);
+.gallery-lightbox[hidden] {
+    display: none !important;
 }
 
-.gallery-footer span {
-    color: #c15f8b;
-    font-weight: 700;
+/* Lightbox content */
+
+.lightbox-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-width: min(800px, 75vw);
+    max-height: 100%;
+}
+
+.lightbox-image {
+    display: block;
+
+    max-width: 100%;
+    max-height: 72vh;
+
+    object-fit: contain;
+
+    border: 5px solid white;
+    border-radius: 12px;
+
+    box-shadow: 0 15px 50px rgba(0, 0, 0, .3);
+}
+
+.lightbox-caption {
+    margin-top: 16px;
+    color: white;
+    font-size: 17px;
+    text-align: center;
+}
+
+.lightbox-counter {
+    margin-top: 8px;
+    color: #f2c4d8;
+    font-size: 13px;
+}
+
+/* Lightbox navigation buttons */
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    width: 46px;
+    height: 46px;
+
+    color: white;
+    background: rgba(255, 255, 255, .15);
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 50%;
+
+    font-size: 25px;
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: rgba(255, 255, 255, .3);
+    transform: scale(1.08);
+}
+
+.lightbox-close:focus-visible,
+.lightbox-prev:focus-visible,
+.lightbox-next:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 4px;
+}
+
+/* Close button position */
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+    font-size: 30px;
+}
+
+/* Prevent background scrolling */
+
+body.lightbox-open {
+    overflow: hidden;
 }
 
 /* Responsive */
@@ -196,127 +356,20 @@
         transform: translateY(-5px);
     }
 
-    .gallery-subtitle {
-        margin-bottom: 38px;
+    #gallery-section .section-heading {
+        margin-bottom: 35px;
     }
 
-    .gallery-footer {
-        margin-top: 40px;
-        padding: 22px 18px;
-    }
-}
-
-/* Accessibility */
-
-@media (prefers-reduced-motion: reduce) {
-    .gallery-card,
-    .gallery-image {
-        transition: none !important;
+    .gallery-caption h3 {
+        font-size: 19px;
     }
 
-    .gallery-card:hover .gallery-image {
-        transform: none;
+    .gallery-caption p {
+        font-size: 13px;
     }
-}
 
-/* =========================================
-   GALLERY LIGHTBOX
-========================================= */
+    /* Mobile lightbox */
 
-.gallery-lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-
-    padding: 65px 20px 25px;
-
-    background: rgba(35, 18, 29, .93);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.gallery-lightbox[hidden] {
-    display: none !important;
-}
-
-.lightbox-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    max-width: min(800px, 75vw);
-    max-height: 100%;
-}
-
-.lightbox-image {
-    display: block;
-    max-width: 100%;
-    max-height: 72vh;
-
-    object-fit: contain;
-    border: 5px solid white;
-    border-radius: 12px;
-
-    box-shadow: 0 15px 50px rgba(0, 0, 0, .3);
-}
-
-.lightbox-caption {
-    margin-top: 16px;
-    color: white;
-    font-size: 17px;
-    text-align: center;
-}
-
-.lightbox-counter {
-    margin-top: 8px;
-    color: #f2c4d8;
-    font-size: 13px;
-}
-
-.lightbox-close,
-.lightbox-prev,
-.lightbox-next {
-    display: grid;
-    place-items: center;
-
-    width: 46px;
-    height: 46px;
-
-    color: white;
-    background: rgba(255, 255, 255, .15);
-    border: 1px solid rgba(255, 255, 255, .25);
-    border-radius: 50%;
-
-    font-size: 25px;
-    cursor: pointer;
-
-    transition: background .2s ease, transform .2s ease;
-}
-
-.lightbox-close:hover,
-.lightbox-prev:hover,
-.lightbox-next:hover {
-    background: rgba(255, 255, 255, .3);
-    transform: scale(1.08);
-}
-
-.lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 22px;
-    font-size: 30px;
-}
-
-body.lightbox-open {
-    overflow: hidden;
-}
-
-@media (max-width: 600px) {
     .gallery-lightbox {
         gap: 8px;
         padding: 65px 8px 20px;
@@ -335,5 +388,31 @@ body.lightbox-open {
         width: 36px;
         height: 36px;
         font-size: 19px;
+    }
+
+    .lightbox-caption {
+        font-size: 14px;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .gallery-card,
+    .gallery-image,
+    .view-photo-btn,
+    .gallery-image-overlay,
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+        transition: none !important;
+    }
+
+    .gallery-card:hover .gallery-image {
+        transform: none;
+    }
+
+    .view-photo-btn {
+        transform: none;
     }
 }
