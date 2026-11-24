@@ -385,3 +385,14 @@
         transition: none !important;
     }
 }
+
+/* GIFTS TEXT CONTRAST FIX — append at the end of existing gifts.css */
+#gifts-section .section-heading h2 { color: #b94f7e; }
+#gifts-section .section-heading p { color: #765766; }
+.gift-card h3 { color: #a94f76; }
+.gift-card p { color: #684f61; }
+.gift-message-card,
+.gift-message-card p { color: #684f61; }
+.gift-message-card h3 { color: #a94f76; }
+.gift-open-text { color: #a94f76; }
+.close-gift-message { color: #8e4667; }
