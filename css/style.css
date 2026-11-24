@@ -149,3 +149,12 @@ input:focus-visible {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* GLOBAL TEXT CONTRAST FIX — append at the end of existing style.css */
+:root {
+  --text-dark: #4b3441;
+  --text-light: #f5f1f4;
+}
+/* Keep the vault's dark theme, but give light sections readable defaults. */
+.section-heading h2 { color: #b94f7e; }
+.section-heading p { color: #765766; }
