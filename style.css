@@ -1,0 +1,151 @@
+
+/* =========================================
+   NASIA SECRET WORLD
+   GLOBAL STYLESHEET
+========================================= */
+
+/* Google Font fallback and reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink-primary: #f8c9dc;
+    --pink-light: #fff0f6;
+    --pink-dark: #d77d9e;
+
+    --white: #ffffff;
+    --rose-gold: #c58b72;
+
+    --dark-bg: #08090c;
+    --dark-metal: #17191e;
+    --metal-border: #444851;
+
+    --text-dark: #4b3441;
+    --text-light: #f5f1f4;
+
+    --heading-font: 'Playfair Display', serif;
+    --body-font: 'DM Sans', sans-serif;
+}
+
+/* HTML */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px;
+}
+
+/* Body */
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    font-family: var(--body-font);
+
+    background: var(--dark-bg);
+
+    color: var(--text-light);
+
+    overflow-x: hidden;
+}
+
+/* Images */
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Buttons */
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* Links */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Form Elements */
+
+input,
+button {
+    font: inherit;
+}
+
+/* Hidden Elements */
+
+[hidden] {
+    display: none !important;
+}
+
+/* Selection */
+
+::selection {
+    background: var(--pink-primary);
+    color: #301b26;
+}
+
+/* Main Section Container */
+
+.section-container {
+    width: min(1120px, 90%);
+    margin: 0 auto;
+}
+
+/* Section Headings */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-heading h2 {
+    font-family: var(--heading-font);
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 500;
+}
+
+.section-heading p {
+    margin-top: 15px;
+    line-height: 1.8;
+}
+
+.section-eyebrow {
+    display: inline-block;
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+    font-size: 0.75rem;
+}
+
+/* Focus Accessibility */
+
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--pink-dark);
+    outline-offset: 4px;
+}
+
+/* Reduced Motion Support */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
