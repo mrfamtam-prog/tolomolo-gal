@@ -1,0 +1,277 @@
+
+/* =========================================
+   NASIA SURPRISE WEBSITE
+   PHASE 6: CINEMATIC FRIENDSHIP ENDING
+========================================= */
+
+#ending-section {
+    position: relative;
+    min-height: 85vh;
+    min-height: 85svh;
+    padding: 110px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    isolation: isolate;
+
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.95), transparent 32%),
+        radial-gradient(circle at 85% 80%, rgba(255,190,215,.4), transparent 35%),
+        linear-gradient(135deg, #fff7fb, #ffe3ef, #fff2f8);
+}
+
+/* Soft background lights */
+
+#ending-section::before,
+#ending-section::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(5px);
+}
+
+#ending-section::before {
+    width: 350px;
+    height: 350px;
+    top: -150px;
+    right: -100px;
+    background: rgba(255,255,255,.7);
+}
+
+#ending-section::after {
+    width: 400px;
+    height: 400px;
+    bottom: -200px;
+    left: -120px;
+    background: rgba(245,170,200,.25);
+}
+
+/* Main content */
+
+.ending-container {
+    position: relative;
+    z-index: 2;
+    width: min(800px, 100%);
+    padding: 55px 35px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,.68);
+    border: 1px solid rgba(255,255,255,.95);
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 65px rgba(190,105,145,.14),
+        inset 0 1px 0 rgba(255,255,255,.9);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    animation: endingAppear 1.2s ease both;
+}
+
+/* Decorative symbol */
+
+.ending-symbol {
+    margin-bottom: 22px;
+    color: #df86aa;
+    font-size: 45px;
+    animation: endingFloat 4s ease-in-out infinite;
+}
+
+/* Heading */
+
+.ending-title {
+    margin-bottom: 22px;
+    color: #b94f7e;
+
+    font-size: clamp(35px, 6vw, 60px);
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.ending-title span {
+    display: block;
+    margin-top: 8px;
+    color: #e58aaf;
+}
+
+/* Main message */
+
+.ending-message {
+    max-width: 620px;
+    margin: 0 auto;
+
+    color: #795c6d;
+    font-size: clamp(15px, 2.2vw, 18px);
+    line-height: 2;
+}
+
+/* Highlighted friendship words */
+
+.ending-message strong {
+    color: #bd5f89;
+    font-weight: 750;
+}
+
+/* Decorative divider */
+
+.ending-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+    margin: 30px auto;
+
+    color: #df86aa;
+    font-size: 18px;
+}
+
+.ending-divider::before,
+.ending-divider::after {
+    content: "";
+    width: 65px;
+    height: 1px;
+    background: #efc3d5;
+}
+
+/* Final note */
+
+.ending-final-note {
+    margin-top: 25px;
+    color: #bd6389;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: .3px;
+}
+
+/* Footer */
+
+.ending-footer {
+    position: relative;
+    z-index: 2;
+    margin-top: 35px;
+    color: #a7798e;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* Floating decorations */
+
+.ending-decoration {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+
+    animation: endingFloat 6s ease-in-out infinite;
+}
+
+.ending-decoration.one {
+    top: 12%;
+    left: 8%;
+    font-size: 45px;
+}
+
+.ending-decoration.two {
+    top: 18%;
+    right: 9%;
+    font-size: 35px;
+    animation-delay: -2s;
+}
+
+.ending-decoration.three {
+    bottom: 12%;
+    left: 10%;
+    font-size: 35px;
+    animation-delay: -3s;
+}
+
+.ending-decoration.four {
+    bottom: 10%;
+    right: 8%;
+    font-size: 45px;
+    animation-delay: -1s;
+}
+
+/* Animations */
+
+@keyframes endingAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes endingFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(7deg);
+    }
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+    #ending-section {
+        min-height: 80vh;
+        padding: 75px 16px;
+    }
+
+    .ending-container {
+        padding: 42px 20px;
+        border-radius: 24px;
+    }
+
+    .ending-message {
+        line-height: 1.85;
+    }
+
+    .ending-decoration.one {
+        top: 4%;
+        left: 3%;
+        font-size: 28px;
+    }
+
+    .ending-decoration.two {
+        top: 5%;
+        right: 3%;
+        font-size: 27px;
+    }
+
+    .ending-decoration.three {
+        bottom: 3%;
+        left: 3%;
+        font-size: 27px;
+    }
+
+    .ending-decoration.four {
+        bottom: 3%;
+        right: 3%;
+        font-size: 30px;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .ending-container,
+    .ending-symbol,
+    .ending-decoration {
+        animation: none !important;
+    }
+}
