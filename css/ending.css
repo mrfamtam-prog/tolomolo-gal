@@ -285,3 +285,62 @@
 .ending-final-note { color: #a3446e; }
 .ending-footer { color: #73566a; }
 
+/* =========================================
+   ENDING PAGE — TEXT VISIBILITY FIX
+========================================= */
+
+/* Main ending heading */
+#ending-section .ending-title {
+    color: #B94F7E !important;
+    opacity: 1 !important;
+}
+
+/* Heading highlighted text */
+#ending-section .ending-title span {
+    color: #C65385 !important;
+    opacity: 1 !important;
+}
+
+/* Small top label */
+#ending-section .ending-container > * {
+    opacity: 1;
+}
+
+/* Main friendship message */
+#ending-section .ending-message {
+    color: #704B61 !important;
+    opacity: 1 !important;
+}
+
+/* Bold/highlighted words */
+#ending-section .ending-message strong {
+    color: #B74779 !important;
+    opacity: 1 !important;
+}
+
+/* Final message */
+#ending-section .ending-final-note {
+    color: #A94373 !important;
+    opacity: 1 !important;
+}
+
+/* Footer text */
+#ending-section .ending-footer {
+    color: #76566A !important;
+    opacity: 1 !important;
+}
+
+/* Ending divider decoration */
+#ending-section .ending-divider {
+    color: #D16C99 !important;
+}
+
+/* Any paragraph inside ending section */
+#ending-section p {
+    opacity: 1 !important;
+}
+
+/* Make ending content readable */
+#ending-section .ending-container {
+    background: rgba(255, 255, 255, 0.82) !important;
+}
