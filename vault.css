@@ -1,0 +1,955 @@
+
+/* =========================================
+   NASIA SECRET WORLD
+   SECRET MECHANICAL VAULT
+========================================= */
+
+/* Main Vault Section */
+
+.vault-section {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 15px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #252832 0%,
+            #111319 45%,
+            #050608 100%
+        );
+
+    perspective: 1400px;
+
+    isolation: isolate;
+}
+
+/* Background Lighting */
+
+.vault-background {
+    position: absolute;
+    inset: 0;
+
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(120, 128, 155, 0.12),
+            transparent 50%
+        );
+}
+
+/* Ambient Light */
+
+.vault-background::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: rgba(180, 190, 220, 0.08);
+
+    filter: blur(120px);
+
+    border-radius: 50%;
+}
+
+/* Vault Main Container */
+
+.vault-container {
+    position: relative;
+
+    width: min(920px, 96vw);
+
+    perspective: 1600px;
+
+    z-index: 2;
+}
+
+/* Main Metallic Frame */
+
+.vault-frame {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 1.65 / 1;
+
+    min-height: 360px;
+
+    border: 10px solid #383c45;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #252931,
+            #101216 45%,
+            #292d35
+        );
+
+    box-shadow:
+        0 35px 80px rgba(0, 0, 0, 0.8),
+        inset 0 0 0 3px #777d88,
+        inset 0 0 0 7px #17191e,
+        inset 0 0 35px rgba(0, 0, 0, 0.9);
+
+    transform-style: preserve-3d;
+
+    overflow: hidden;
+}
+
+/* Outer Frame Highlights */
+
+.vault-frame::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 8px;
+
+    border: 1px solid rgba(200, 205, 215, 0.25);
+
+    border-radius: 10px;
+
+    pointer-events: none;
+
+    z-index: 8;
+}
+
+/* Left Control Panel */
+
+.vault-control-panel {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 50%;
+    height: 100%;
+
+    padding: 6% 4%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #292d35,
+            #101216 55%,
+            #20242b
+        );
+
+    border-right: 2px solid #555a63;
+
+    z-index: 2;
+}
+
+/* Vault Brand */
+
+.vault-brand {
+    position: absolute;
+
+    top: 9%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: clamp(8px, 1vw, 12px);
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: #b7bac2;
+}
+
+/* Indicator Light */
+
+.vault-indicator {
+    width: 9px;
+    height: 9px;
+
+    background: #b88b45;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 8px #d7a64f,
+        0 0 18px rgba(215, 166, 79, 0.4);
+
+    animation: indicatorPulse 2s infinite;
+}
+
+@keyframes indicatorPulse {
+
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+/* Digital Display */
+
+.vault-display {
+    width: 90%;
+
+    min-height: 38px;
+
+    margin-bottom: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #080b0d;
+
+    border: 2px solid #535861;
+
+    border-radius: 5px;
+
+    box-shadow:
+        inset 0 0 15px rgba(0, 0, 0, 0.9),
+        0 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+#vault-status {
+    font-size: clamp(8px, 1.2vw, 12px);
+
+    letter-spacing: 2px;
+
+    color: #d5b77d;
+
+    text-shadow: 0 0 8px rgba(213, 183, 125, 0.6);
+}
+
+/* Password Form */
+
+#vault-form {
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.vault-label {
+    color: #a9adb6;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    font-weight: 600;
+}
+
+/* Password Input */
+
+#vault-pin {
+    width: 100%;
+
+    height: 43px;
+
+    padding: 0 12px;
+
+    background: #080a0d;
+
+    border: 1px solid #555b65;
+
+    border-radius: 4px;
+
+    color: #e6d4b4;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    outline: none;
+
+    transition: 0.3s ease;
+}
+
+#vault-pin::placeholder {
+    color: #656b75;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+#vault-pin:focus {
+    border-color: #c9a86d;
+
+    box-shadow:
+        0 0 10px rgba(201, 168, 109, 0.25);
+}
+
+/* Unlock Button */
+
+#vault-unlock-btn {
+    width: 100%;
+
+    height: 40px;
+
+    border: 1px solid #a88752;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9d7841,
+            #d4b77e,
+            #8d6939
+        );
+
+    color: #17130d;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    transition: 0.3s ease;
+}
+
+#vault-unlock-btn:hover {
+    filter: brightness(1.2);
+
+    box-shadow:
+        0 0 15px rgba(212, 183, 126, 0.4);
+
+    transform: translateY(-2px);
+}
+
+#vault-unlock-btn:active {
+    transform: scale(0.97);
+}
+
+/* Decorative Keypad */
+
+.vault-keypad {
+    width: 75%;
+
+    margin-top: 17px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 7px;
+}
+
+.vault-keypad button {
+    aspect-ratio: 1.5 / 1;
+
+    background:
+        linear-gradient(
+            145deg,
+            #444953,
+            #20242b
+        );
+
+    border: 1px solid #666d79;
+
+    border-radius: 4px;
+
+    color: #d2d5dc;
+
+    font-size: 11px;
+
+    box-shadow:
+        inset 0 1px 2px rgba(255, 255, 255, 0.12),
+        0 3px 4px rgba(0, 0, 0, 0.5);
+
+    cursor: default;
+}
+
+/* Error Message */
+
+.vault-error {
+    min-height: 15px;
+
+    margin-top: 7px;
+
+    font-size: 10px;
+
+    color: #ff7777;
+
+    text-align: center;
+}
+
+/* Wrong Password Animation */
+
+.vault-section.wrong-password .vault-frame {
+    animation: vaultShake 0.4s ease;
+}
+
+@keyframes vaultShake {
+
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    20%, 60% {
+        transform: translateX(-7px);
+    }
+
+    40%, 80% {
+        transform: translateX(7px);
+    }
+}
+
+/* Center Mechanical Handle */
+
+.vault-center {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 150px;
+    height: 150px;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+/* Outer Handle Ring */
+
+.vault-handle-outer {
+    width: 100%;
+    height: 100%;
+
+    padding: 12px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d0d3d9,
+            #50555f 30%,
+            #171a20 65%,
+            #b7bbc4
+        );
+
+    border: 3px solid #858b96;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.7),
+        inset 0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Inner Handle */
+
+.vault-handle-inner {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    border: 5px solid #8f949e;
+
+    background:
+        radial-gradient(
+            circle,
+            #414751,
+            #171a20 70%
+        );
+
+    box-shadow:
+        inset 0 0 15px rgba(0, 0, 0, 0.9);
+}
+
+/* Handle Center */
+
+.vault-handle-center {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 42px;
+    height: 42px;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d4b77e,
+            #70532d
+        );
+
+    border: 3px solid #e0c99e;
+
+    color: #251d10;
+
+    font-size: 20px;
+}
+
+/* Handle Spokes */
+
+.vault-handle-spoke {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 7px;
+    height: 48%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #555b66,
+            #d2d5dc,
+            #535963
+        );
+
+    transform-origin: center;
+}
+
+.spoke-one {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.spoke-two {
+    transform: translate(-50%, -50%) rotate(120deg);
+}
+
+.spoke-three {
+    transform: translate(-50%, -50%) rotate(240deg);
+}
+
+/* Right Side Vault Door */
+
+.vault-door {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 50%;
+    height: 100%;
+
+    padding: 12px;
+
+    z-index: 4;
+
+    transform-origin: left center;
+
+    transform-style: preserve-3d;
+
+    backface-visibility: visible;
+
+    background:
+        linear-gradient(
+            135deg,
+            #777e89,
+            #343942 20%,
+            #171a20 50%,
+            #555b65 80%,
+            #252a32
+        );
+
+    border: 4px solid #9399a3;
+
+    box-shadow:
+        inset 0 0 0 3px #282d35,
+        inset 0 0 25px rgba(0, 0, 0, 0.7),
+        -8px 0 25px rgba(0, 0, 0, 0.6);
+
+    transition:
+        transform 2s cubic-bezier(0.22, 0.61, 0.36, 1),
+        box-shadow 1.5s ease;
+}
+
+/* Vault Door Inner Surface */
+
+.vault-door-inner {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 3px solid #a1a6af;
+
+    background:
+        linear-gradient(
+            145deg,
+            #5b626e,
+            #252a33 40%,
+            #111419 75%,
+            #505661
+        );
+
+    box-shadow:
+        inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+/* Door Decorative Border */
+
+.vault-door-inner::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 10px;
+
+    border: 2px solid rgba(195, 199, 208, 0.3);
+
+    border-radius: 4px;
+}
+
+/* Door Central Lock */
+
+.vault-door-lock {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+
+    border: 5px solid #a9adb5;
+
+    background:
+        radial-gradient(
+            circle,
+            #171a20,
+            #555b66
+        );
+
+    box-shadow:
+        0 0 15px rgba(0, 0, 0, 0.8),
+        inset 0 0 12px rgba(0, 0, 0, 0.9);
+}
+
+/* Door Bolts */
+
+.vault-door-bolts {
+    position: absolute;
+
+    inset: 18px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    pointer-events: none;
+}
+
+.bolt {
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            #e0e3e9,
+            #6e7480 55%,
+            #242831
+        );
+
+    box-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Golden Light Behind Vault */
+
+.vault-frame::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 50%;
+    height: 100%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 190, 88, 0.9),
+            rgba(255, 174, 65, 0.25) 45%,
+            transparent 75%
+        );
+
+    opacity: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    transition: opacity 1.5s ease;
+}
+
+/* Unlocking State */
+
+.vault-section.is-unlocking .vault-door {
+    transform: rotateY(-105deg);
+
+    box-shadow:
+        -30px 0 50px rgba(0, 0, 0, 0.8);
+}
+
+.vault-section.is-unlocking .vault-handle-inner {
+    animation: handleUnlock 1.2s ease-in-out forwards;
+}
+
+.vault-section.is-unlocking .vault-frame::after {
+    opacity: 1;
+}
+
+/* Handle Rotation */
+
+@keyframes handleUnlock {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Metallic Shine */
+
+.vault-door::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.13),
+            transparent
+        );
+
+    transform: skewX(-15deg);
+
+    pointer-events: none;
+
+    animation: metalShine 5s infinite;
+}
+
+@keyframes metalShine {
+
+    0%, 65% {
+        left: -100%;
+    }
+
+    100% {
+        left: 150%;
+    }
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 600px) {
+
+    .vault-section {
+        padding: 20px 10px;
+    }
+
+    .vault-frame {
+        min-height: 280px;
+
+        aspect-ratio: 1.2 / 1;
+
+        border-width: 6px;
+
+        border-radius: 12px;
+    }
+
+    .vault-control-panel {
+        padding: 8% 3%;
+    }
+
+    .vault-brand {
+        letter-spacing: 1px;
+
+        font-size: 7px;
+    }
+
+    .vault-display {
+        min-height: 30px;
+
+        margin-bottom: 10px;
+    }
+
+    #vault-status {
+        font-size: 7px;
+
+        letter-spacing: 1px;
+    }
+
+    .vault-label {
+        font-size: 7px;
+    }
+
+    #vault-pin {
+        height: 35px;
+
+        font-size: 10px;
+    }
+
+    #vault-unlock-btn {
+        height: 34px;
+
+        font-size: 9px;
+    }
+
+    .vault-keypad {
+        width: 85%;
+
+        gap: 4px;
+
+        margin-top: 10px;
+    }
+
+    .vault-keypad button {
+        font-size: 8px;
+    }
+
+    .vault-center {
+        width: 90px;
+        height: 90px;
+    }
+
+    .vault-handle-outer {
+        padding: 7px;
+    }
+
+    .vault-handle-inner {
+        border-width: 3px;
+    }
+
+    .vault-handle-center {
+        width: 28px;
+        height: 28px;
+
+        font-size: 14px;
+    }
+
+    .vault-door {
+        padding: 7px;
+
+        border-width: 3px;
+    }
+
+    .vault-door-lock {
+        width: 40px;
+        height: 40px;
+
+        border-width: 3px;
+    }
+
+    .vault-door-bolts {
+        inset: 12px;
+    }
+
+    .bolt {
+        width: 8px;
+        height: 8px;
+    }
+
+    .vault-error {
+        font-size: 8px;
+    }
+
+}
+
+/* Extra Small Screens */
+
+@media (max-width: 360px) {
+
+    .vault-frame {
+        min-height: 250px;
+    }
+
+    .vault-center {
+        width: 75px;
+        height: 75px;
+    }
+
+    .vault-brand {
+        font-size: 6px;
+    }
+
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .vault-door,
+    .vault-handle-inner,
+    .vault-frame {
+        animation: none !important;
+
+        transition: none !important;
+    }
+
+}
