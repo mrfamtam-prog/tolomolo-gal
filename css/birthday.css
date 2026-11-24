@@ -264,3 +264,14 @@
         transition: none;
     }
 }
+
+/* BIRTHDAY TEXT CONTRAST FIX — append at the end of existing birthday.css */
+.birthday-label { color: #9d4c72; }
+.birthday-title, .countdown-heading { color: #a94470; }
+.birthday-title span { color: #c76b96; }
+.birthday-message-card p { color: #684f61; }
+.birthday-highlight { color: #a3446e; }
+.countdown-description { color: #684f61; }
+.countdown-value { color: #a94470; }
+.countdown-unit { color: #73566a; }
+.countdown-footer { color: #73566a; }
