@@ -1,0 +1,908 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic Page Information -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little World for Nasia 🌸</title>
+
+    <meta name="description"
+        content="A special digital surprise created for Afsara Mujtaniba Nasia.">
+
+    <meta name="theme-color" content="#fff0f6">
+
+    <!-- Website Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Section-specific Stylesheets -->
+    <link rel="stylesheet" href="css/vault.css">
+    <link rel="stylesheet" href="css/welcome.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/birthday.css">
+    <link rel="stylesheet" href="css/gifts.css">
+    <link rel="stylesheet" href="css/ending.css">
+
+    <!-- Optional Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         SECTION 01: SECRET PASSWORD VAULT
+    =========================================== -->
+
+    <section id="vault-section" class="vault-section">
+
+        <div class="vault-background"></div>
+
+        <div class="vault-container">
+
+            <div class="vault-frame">
+
+                <!-- Left Side: Password Control -->
+                <div class="vault-control-panel">
+
+                    <div class="vault-brand">
+                        <span class="vault-indicator"></span>
+                        <span>SECURE ACCESS</span>
+                    </div>
+
+                    <div class="vault-display">
+                        <span id="vault-status" aria-live="polite">
+                            ENTER ACCESS CODE
+                        </span>
+                    </div>
+
+                    <form id="vault-form">
+
+                        <label for="vault-pin" class="vault-label">
+                            ACCESS PASSWORD
+                        </label>
+
+                        <input
+                            type="password"
+                            id="vault-pin"
+                            name="vault-pin"
+                            placeholder="Enter your password"
+                            autocomplete="off"
+                            spellcheck="false"
+                            required
+                        >
+
+                        <button type="submit" id="vault-unlock-btn">
+                            UNLOCK
+                        </button>
+
+                    </form>
+
+                    <!-- Decorative keypad -->
+                    <div class="vault-keypad" aria-label="Decorative keypad">
+
+                        <button type="button" tabindex="-1" aria-hidden="true">1</button>
+                        <button type="button" tabindex="-1" aria-hidden="true">2</button>
+                        <button type="button" tabindex="-1" aria-hidden="true">3</button>
+
+                        <button type="button" tabindex="-1" aria-hidden="true">4</button>
+                        <button type="button" tabindex="-1" aria-hidden="true">5</button>
+                        <button type="button" tabindex="-1" aria-hidden="true">6</button>
+
+                        <button type="button" tabindex="-1" aria-hidden="true">7</button>
+                        <button type="button" tabindex="-1" aria-hidden="true">8</button>
+                        <button type="button" tabindex="-1" aria-hidden="true">9</button>
+
+                    </div>
+
+                    <p id="vault-error" class="vault-error" role="alert"></p>
+
+                </div>
+
+
+                <!-- Center: Mechanical Vault Handle -->
+                <div class="vault-center">
+
+                    <div class="vault-handle-outer">
+
+                        <div class="vault-handle-inner">
+
+                            <div class="vault-handle-center">
+                                <span>✦</span>
+                            </div>
+
+                            <div class="vault-handle-spoke spoke-one"></div>
+                            <div class="vault-handle-spoke spoke-two"></div>
+                            <div class="vault-handle-spoke spoke-three"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Right Side: Vault Door -->
+                <div class="vault-door" id="vault-door">
+
+                    <div class="vault-door-inner">
+
+                        <div class="vault-door-lock"></div>
+
+                        <div class="vault-door-bolts">
+
+                            <span class="bolt bolt-one"></span>
+                            <span class="bolt bolt-two"></span>
+                            <span class="bolt bolt-three"></span>
+                            <span class="bolt bolt-four"></span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         MAIN WEBSITE CONTENT
+         Initially hidden until vault unlocks
+    =========================================== -->
+
+    <main id="site-content" hidden>
+
+
+        <!-- ======================================
+             SECTION 02: WELCOME PAGE
+        ======================================= -->
+
+        <section id="welcome-section" class="welcome-section">
+
+            <!-- Animated Background -->
+            <div class="welcome-background">
+
+                <div class="floating-flowers" aria-hidden="true">
+
+                    <span class="flower flower-one">🌸</span>
+                    <span class="flower flower-two">🌷</span>
+                    <span class="flower flower-three">🌼</span>
+                    <span class="flower flower-four">🌸</span>
+                    <span class="flower flower-five">🌺</span>
+
+                </div>
+
+                <div class="floating-butterflies" aria-hidden="true">
+
+                    <span class="butterfly butterfly-one">🦋</span>
+                    <span class="butterfly butterfly-two">🦋</span>
+                    <span class="butterfly butterfly-three">🦋</span>
+
+                </div>
+
+                <div class="sparkles" aria-hidden="true"></div>
+
+            </div>
+
+
+            <!-- Welcome Content -->
+            <div class="welcome-content">
+
+                <div class="welcome-decoration">
+                    ✿ &nbsp; A SPECIAL LITTLE GIFT &nbsp; ✿
+                </div>
+
+                <h1 class="welcome-title">
+                    Welcome,
+                    <span class="nasia-name">Nasia!</span>
+                </h1>
+
+                <h2 class="welcome-subtitle">
+                    A Little Surprise Awaits You
+                </h2>
+
+                <p class="welcome-description">
+
+                    A small digital gift, created to bring
+                    a little happiness to your day.
+
+                    Take your time, explore and enjoy
+                    every little surprise!
+
+                </p>
+
+                <button
+                    type="button"
+                    id="explore-btn"
+                    class="explore-button"
+                >
+                    Let's Explore
+                    <span aria-hidden="true">♡</span>
+                </button>
+
+            </div>
+
+
+            <!-- Decorative Flowers -->
+            <div class="welcome-bottom-decoration" aria-hidden="true">
+                🌷 🌸 🌼 🌸 🌷
+            </div>
+
+        </section>
+
+
+
+        <!-- ======================================
+             SECTION 03: BEAUTIFUL PHOTO GALLERY
+        ======================================= -->
+
+        <section id="gallery-section" class="gallery-section">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <span class="section-eyebrow">
+                        A LITTLE COLLECTION
+                    </span>
+
+                    <h2>
+                        Beautiful Gallery
+                        <span>🌸</span>
+                    </h2>
+
+                    <p>
+                        Two lovely pictures and a little appreciation.
+                    </p>
+
+                </div>
+
+
+                <!-- Photo Gallery -->
+                <div class="gallery-grid">
+
+
+                    <!-- Photograph One -->
+                    <article class="gallery-card">
+
+                        <div class="gallery-image-wrapper">
+
+                            <img
+                                src="assets/images/nasia-01.jpg"
+                                alt="Nasia wearing a beautiful red and pink outfit"
+                                class="gallery-image"
+                                loading="lazy"
+                            >
+
+                            <div class="gallery-image-overlay">
+
+                                <button
+                                    type="button"
+                                    class="view-photo-btn"
+                                    data-image="assets/images/nasia-01.jpg"
+                                    aria-label="View first photograph"
+                                >
+                                    View Photo
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="gallery-caption">
+
+                            <span class="caption-decoration">♡</span>
+
+                            <h3>Those Lovely Cheeks</h3>
+
+                            <p>
+                                Some smiles are naturally adorable,
+                                and those soft, chubby cheeks make
+                                yours even more special.
+
+                                They have a way of making a simple
+                                smile look extra cheerful!
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- Photograph Two -->
+                    <article class="gallery-card">
+
+                        <div class="gallery-image-wrapper">
+
+                            <img
+                                src="assets/images/nasia-02.jpg"
+                                alt="Nasia smiling in a lovely photograph"
+                                class="gallery-image"
+                                loading="lazy"
+                            >
+
+                            <div class="gallery-image-overlay">
+
+                                <button
+                                    type="button"
+                                    class="view-photo-btn"
+                                    data-image="assets/images/nasia-02.jpg"
+                                    aria-label="View second photograph"
+                                >
+                                    View Photo
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="gallery-caption">
+
+                            <span class="caption-decoration">♡</span>
+
+                            <h3>The Sweetest Smile</h3>
+
+                            <p>
+                                Those lovely cheeks deserve
+                                their own little appreciation!
+
+                                There's something so cute and
+                                cheerful about your smile that
+                                makes this picture extra special.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+
+                <!-- Image Lightbox -->
+                <div
+                    id="photo-lightbox"
+                    class="photo-lightbox"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="Enlarged photograph"
+                    hidden
+                >
+
+                    <button
+                        type="button"
+                        id="close-lightbox"
+                        class="close-lightbox"
+                        aria-label="Close photograph"
+                    >
+                        &times;
+                    </button>
+
+                    <img
+                        src=""
+                        id="lightbox-image"
+                        alt="Enlarged gallery photograph"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ======================================
+             SECTION 04: BELATED BIRTHDAY WISH
+        ======================================= -->
+
+        <section id="birthday-section" class="birthday-section">
+
+            <div class="birthday-background">
+
+                <div class="birthday-decoration" aria-hidden="true">
+                    🎀 🌸 ✨ 🌷
+                </div>
+
+            </div>
+
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <span class="section-eyebrow">
+                        A SPECIAL NOTE
+                    </span>
+
+                    <h2>
+                        A Wish I Couldn't Send on Time...
+                    </h2>
+
+                    <p>
+                        A little message about a missed birthday
+                        and a future day to look forward to.
+                    </p>
+
+                </div>
+
+
+                <!-- Birthday Message Card -->
+                <div class="birthday-message-card">
+
+                    <div class="birthday-icon">
+                        🎂
+                    </div>
+
+                    <h3>A Little Birthday Note</h3>
+
+                    <p>
+
+                        I know I missed wishing you on your
+                        special day, and honestly, I feel a
+                        little bad about that.
+
+                        I wish I hadn't missed the opportunity.
+
+                    </p>
+
+                    <p>
+
+                        But I am already looking forward to
+                        your next birthday.
+
+                        I hope I can make that day a little
+                        more special with a proper wish and
+                        lots of happiness.
+
+                    </p>
+
+                    <p class="birthday-closing">
+                        Until then, keep smiling and stay happy! 🌷
+                    </p>
+
+                </div>
+
+
+
+                <!-- Live Birthday Countdown -->
+                <div class="countdown-container">
+
+                    <div class="countdown-heading">
+
+                        <span>⏳</span>
+
+                        <h3>
+                            Counting Down to Your Next Birthday
+                        </h3>
+
+                        <p>
+                            25 October 2027
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        id="birthday-countdown"
+                        class="countdown-grid"
+                        data-target="2027-10-25T00:00:00+06:00"
+                        aria-label="Countdown to 25 October 2027"
+                    >
+
+                        <div class="countdown-box">
+
+                            <span id="countdown-days">000</span>
+
+                            <small>Days</small>
+
+                        </div>
+
+
+                        <div class="countdown-box">
+
+                            <span id="countdown-hours">00</span>
+
+                            <small>Hours</small>
+
+                        </div>
+
+
+                        <div class="countdown-box">
+
+                            <span id="countdown-minutes">00</span>
+
+                            <small>Minutes</small>
+
+                        </div>
+
+
+                        <div class="countdown-box">
+
+                            <span id="countdown-seconds">00</span>
+
+                            <small>Seconds</small>
+
+                        </div>
+
+                    </div>
+
+
+                    <p
+                        id="countdown-message"
+                        class="countdown-message"
+                        aria-live="polite"
+                    >
+                        Looking forward to that special day!
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ======================================
+             SECTION 05: LITTLE SURPRISE GIFTS
+        ======================================= -->
+
+        <section id="gifts-section" class="gifts-section">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <span class="section-eyebrow">
+                        A FEW LITTLE TREASURES
+                    </span>
+
+                    <h2>
+                        Little Surprises
+                        <span>🎁</span>
+                    </h2>
+
+                    <p>
+                        Some cute little gifts are waiting
+                        to make your day brighter.
+                    </p>
+
+                </div>
+
+
+
+                <!-- Gift Boxes -->
+                <div class="gift-grid">
+
+
+                    <!-- Gift One -->
+                    <article class="gift-card">
+
+                        <button
+                            type="button"
+                            class="gift-box"
+                            data-gift="bunny"
+                            aria-label="Open the cute bunny gift"
+                        >
+
+                            <span class="gift-emoji">🐰</span>
+
+                            <span class="gift-box-visual">
+                                🎁
+                            </span>
+
+                            <span class="gift-open-text">
+                                Tap to Open
+                            </span>
+
+                        </button>
+
+                        <h3>Little Bunny</h3>
+
+                        <p>A tiny surprise awaits!</p>
+
+                    </article>
+
+
+
+                    <!-- Gift Two -->
+                    <article class="gift-card">
+
+                        <button
+                            type="button"
+                            class="gift-box"
+                            data-gift="teddy"
+                            aria-label="Open the happy teddy gift"
+                        >
+
+                            <span class="gift-emoji">🧸</span>
+
+                            <span class="gift-box-visual">
+                                🎁
+                            </span>
+
+                            <span class="gift-open-text">
+                                Tap to Open
+                            </span>
+
+                        </button>
+
+                        <h3>Happy Teddy</h3>
+
+                        <p>A little happiness inside!</p>
+
+                    </article>
+
+
+
+                    <!-- Gift Three -->
+                    <article class="gift-card">
+
+                        <button
+                            type="button"
+                            class="gift-box"
+                            data-gift="kitty"
+                            aria-label="Open the little kitty gift"
+                        >
+
+                            <span class="gift-emoji">🐱</span>
+
+                            <span class="gift-box-visual">
+                                🎁
+                            </span>
+
+                            <span class="gift-open-text">
+                                Tap to Open
+                            </span>
+
+                        </button>
+
+                        <h3>Little Kitty</h3>
+
+                        <p>Something cute for you!</p>
+
+                    </article>
+
+
+
+                    <!-- Gift Four -->
+                    <article class="gift-card">
+
+                        <button
+                            type="button"
+                            class="gift-box"
+                            data-gift="rainbow"
+                            aria-label="Open the rainbow surprise gift"
+                        >
+
+                            <span class="gift-emoji">🌈</span>
+
+                            <span class="gift-box-visual">
+                                🎁
+                            </span>
+
+                            <span class="gift-open-text">
+                                Tap to Open
+                            </span>
+
+                        </button>
+
+                        <h3>Rainbow Surprise</h3>
+
+                        <p>A colorful little surprise!</p>
+
+                    </article>
+
+
+                </div>
+
+
+
+                <!-- Gift Message Display -->
+                <div
+                    id="gift-message-container"
+                    class="gift-message-container"
+                    aria-live="polite"
+                    hidden
+                >
+
+                    <div class="gift-message-card">
+
+                        <button
+                            type="button"
+                            id="close-gift-message"
+                            class="close-gift-message"
+                            aria-label="Close gift message"
+                        >
+                            &times;
+                        </button>
+
+                        <div
+                            id="gift-message-emoji"
+                            class="gift-message-emoji"
+                        >
+                            🐰
+                        </div>
+
+                        <h3 id="gift-message-title">
+                            A Little Surprise!
+                        </h3>
+
+                        <p id="gift-message-text">
+                            A beautiful message is waiting for you.
+                        </p>
+
+                        <button
+                            type="button"
+                            id="gift-reset-btn"
+                            class="gift-reset-button"
+                        >
+                            Back to Gifts
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ======================================
+             SECTION 06: FINAL CINEMATIC ENDING
+        ======================================= -->
+
+        <section id="ending-section" class="ending-section">
+
+            <div class="ending-background">
+
+                <div class="ending-flowers" aria-hidden="true">
+                    🌸 🌷 🌼 🌸
+                </div>
+
+                <div class="ending-stars" aria-hidden="true">
+                    ✨ ✦ ✧ ✨
+                </div>
+
+                <div class="ending-butterflies" aria-hidden="true">
+                    🦋 🦋
+                </div>
+
+            </div>
+
+
+            <div class="ending-content">
+
+                <span class="ending-eyebrow">
+                    ONE LAST THING...
+                </span>
+
+                <h2>
+                    Here's to Our Friendship
+                </h2>
+
+                <div class="ending-divider">
+                    ✿ ───── ♡ ───── ✿
+                </div>
+
+                <p>
+
+                    Life brings many people into our world,
+                    and some friendships become beautiful
+                    parts of our journey.
+
+                    I hope our friendship stays just as
+                    cheerful, genuine and wonderful for
+                    a long, long time.
+
+                </p>
+
+                <h3>
+                    Stay Happy & Keep Smiling!
+                </h3>
+
+                <div class="ending-name">
+                    A Little World for Nasia ♡
+                </div>
+
+                <div class="ending-footer">
+                    Made with care, just for you.
+                </div>
+
+                <button
+                    type="button"
+                    id="back-to-top"
+                    class="back-to-top-button"
+                >
+                    Back to the Beginning ↑
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ======================================
+             FOOTER
+        ======================================= -->
+
+        <footer class="website-footer">
+
+            <p>
+                A Little World for Afsara Mujtaniba Nasia
+            </p>
+
+            <span>
+                A small digital surprise 🌸
+            </span>
+
+        </footer>
+
+
+    </main>
+
+
+
+    <!-- ==========================================
+         OPTIONAL BACKGROUND MUSIC
+    =========================================== -->
+
+    <audio
+        id="background-music"
+        loop
+        preload="none"
+    >
+        <source
+            src="assets/music/background-music.mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+
+    <!-- Music Control -->
+    <button
+        type="button"
+        id="music-toggle"
+        class="music-toggle"
+        aria-label="Toggle background music"
+        aria-pressed="false"
+        hidden
+    >
+        ♪
+    </button>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT FILES
+    =========================================== -->
+
+    <script src="js/main.js" defer></script>
+    <script src="js/vault.js" defer></script>
+    <script src="js/countdown.js" defer></script>
+    <script src="js/gallery.js" defer></script>
+    <script src="js/gifts.js" defer></script>
+    <script src="js/animations.js" defer></script>
+
+</body>
+
+</html>
