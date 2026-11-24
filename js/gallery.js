@@ -11,16 +11,18 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll(".gallery-image")
     );
 
-    if (galleryImages.length === 0) return;
+    if (!galleryImages.length) return;
 
     let currentIndex = 0;
     let lightbox = null;
+    let previouslyFocusedElement = null;
 
-    // Create lightbox only once
+    // Create the lightbox.
     function createLightbox() {
         if (lightbox) return;
 
         lightbox = document.createElement("div");
+
         lightbox.className = "gallery-lightbox";
         lightbox.setAttribute("role", "dialog");
         lightbox.setAttribute("aria-modal", "true");
@@ -71,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Update the displayed photo
+    // Update the current photo.
     function updateLightbox() {
         const image = galleryImages[currentIndex];
 
@@ -83,6 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
         preview.alt = image.alt || "Gallery photo";
 
         const card = image.closest(".gallery-card");
+
         const heading = card
             ? card.querySelector(".gallery-caption h3")
             : null;
@@ -95,11 +98,13 @@ document.addEventListener("DOMContentLoaded", () => {
             `${currentIndex + 1} / ${galleryImages.length}`;
     }
 
-    // Open viewer
+    // Open the photo viewer.
     function openLightbox(index) {
         createLightbox();
 
         currentIndex = index;
+        previouslyFocusedElement = document.activeElement;
+
         updateLightbox();
 
         lightbox.hidden = false;
@@ -108,17 +113,22 @@ document.addEventListener("DOMContentLoaded", () => {
         lightbox.querySelector(".lightbox-close").focus();
     }
 
-    // Close viewer
+    // Close the photo viewer.
     function closeLightbox() {
         if (!lightbox || lightbox.hidden) return;
 
         lightbox.hidden = true;
         document.body.classList.remove("lightbox-open");
 
-        galleryImages[currentIndex].focus();
+        if (
+            previouslyFocusedElement &&
+            typeof previouslyFocusedElement.focus === "function"
+        ) {
+            previouslyFocusedElement.focus();
+        }
     }
 
-    // Previous photo
+    // Show previous photo.
     function showPrevious() {
         currentIndex =
             (currentIndex - 1 + galleryImages.length) %
@@ -127,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updateLightbox();
     }
 
-    // Next photo
+    // Show next photo.
     function showNext() {
         currentIndex =
             (currentIndex + 1) % galleryImages.length;
@@ -135,11 +145,12 @@ document.addEventListener("DOMContentLoaded", () => {
         updateLightbox();
     }
 
-    // Make images keyboard accessible
+    // Make gallery images clickable and keyboard accessible.
     galleryImages.forEach((image, index) => {
         image.style.cursor = "zoom-in";
         image.setAttribute("tabindex", "0");
         image.setAttribute("role", "button");
+
         image.setAttribute(
             "aria-label",
             `Open gallery photo ${index + 1}`
@@ -157,7 +168,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Keyboard navigation
+    // Make the View Photo buttons work too.
+    document.querySelectorAll(".view-photo-btn").forEach(button => {
+        button.addEventListener("click", () => {
+            const imagePath = button.dataset.image;
+
+            const index = galleryImages.findIndex(image => {
+                return image.getAttribute("src") === imagePath;
+            });
+
+            if (index !== -1) {
+                openLightbox(index);
+            }
+        });
+    });
+
+    // Keyboard navigation.
     document.addEventListener("keydown", event => {
         if (!lightbox || lightbox.hidden) return;
 
@@ -173,5 +199,4 @@ document.addEventListener("DOMContentLoaded", () => {
             showNext();
         }
     });
-
 });
