@@ -416,3 +416,12 @@ body.lightbox-open {
         transform: none;
     }
 }
+
+/* GALLERY TEXT CONTRAST FIX — append at the end of existing gallery.css */
+#gallery-section .section-heading h2 { color: #b94f7e; }
+#gallery-section .section-heading p { color: #765766; }
+.gallery-caption h3 { color: #a94f76; }
+.gallery-caption p { color: #684f61; }
+/* Lightbox remains dark, so its white text/buttons are intentionally retained. */
+.lightbox-caption { color: #fff; }
+.lightbox-counter { color: #f2c4d8; }
