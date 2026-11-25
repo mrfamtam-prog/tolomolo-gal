@@ -66,36 +66,36 @@ document.addEventListener("DOMContentLoaded", () => {
             emoji: "🐰",
             title: "A Little Bunny Surprise!",
             message:
-                "Just like this cute bunny, may your days " +
-                "always be filled with joy, kindness and " +
-                "little moments that make you smile."
+                "Your cheeks are like a little bunny’s softness, " +
+                " so adorable that even the sweetest dreams feel jealous of them. " 
+              
         },
 
         teddy: {
             emoji: "🧸",
             title: "A Teddy Bear Surprise!",
             message:
-                "A little reminder that good friends make " +
-                "ordinary days special. Wishing you lots " +
-                "of happiness and wonderful memories."
+                "You have the warmth of a teddy bear, " +
+                " making even the coldest, " +
+                " loneliest days feel a little softer."
         },
 
         kitty: {
             emoji: "🐱",
             title: "A Cute Kitty Surprise!",
             message:
-                "May your curiosity always lead you to " +
-                "exciting adventures, new discoveries and " +
-                "plenty of reasons to smile."
+                "Your smile and lips remind me of a sleepy kitty, " +
+                " quietly stealing hearts without even trying. " 
+                
         },
 
         rainbow: {
             emoji: "🌈",
             title: "Your Little Rainbow!",
             message:
-                "Just like a rainbow after the rain, may " +
-                "every new day bring fresh hope, happiness " +
-                "and beautiful opportunities."
+                "Your hair feels like a little rainbow in my imagination,  " +
+                "carrying colors of happiness into my dullest days. " 
+               
         }
     };
 
