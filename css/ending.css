@@ -1,7 +1,13 @@
-
 /* =========================================
    NASIA SURPRISE WEBSITE
    PHASE 6: CINEMATIC FRIENDSHIP ENDING
+   FINAL FIXED VERSION
+   THEME: SWEET BROWN & SOFT BLACK
+========================================= */
+
+
+/* =========================================
+   01. MAIN ENDING SECTION
 ========================================= */
 
 #ending-section {
@@ -23,7 +29,10 @@
         linear-gradient(135deg, #fff7fb, #ffe3ef, #fff2f8);
 }
 
-/* Soft background lights */
+
+/* =========================================
+   02. SOFT BACKGROUND LIGHTS
+========================================= */
 
 #ending-section::before,
 #ending-section::after {
@@ -51,17 +60,66 @@
     background: rgba(245,170,200,.25);
 }
 
-/* Main content */
 
-.ending-container {
+/* =========================================
+   03. ENDING BACKGROUND DECORATIONS
+========================================= */
+
+.ending-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.ending-flowers,
+.ending-stars,
+.ending-butterflies {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+    user-select: none;
+}
+
+.ending-flowers {
+    top: 8%;
+    font-size: clamp(22px, 4vw, 35px);
+    letter-spacing: 15px;
+    animation: endingFloat 6s ease-in-out infinite;
+}
+
+.ending-stars {
+    top: 28%;
+    font-size: 25px;
+    letter-spacing: 20px;
+    opacity: .7;
+    animation: endingTwinkle 3s ease-in-out infinite;
+}
+
+.ending-butterflies {
+    bottom: 12%;
+    font-size: 30px;
+    letter-spacing: 25px;
+    animation: endingButterfly 7s ease-in-out infinite;
+}
+
+
+/* =========================================
+   04. MAIN CONTENT
+========================================= */
+
+.ending-content {
     position: relative;
     z-index: 2;
+
     width: min(800px, 100%);
     padding: 55px 35px;
 
     text-align: center;
 
-    background: rgba(255,255,255,.68);
+    background: rgba(255,255,255,.82);
     border: 1px solid rgba(255,255,255,.95);
     border-radius: 30px;
 
@@ -75,51 +133,42 @@
     animation: endingAppear 1.2s ease both;
 }
 
-/* Decorative symbol */
 
-.ending-symbol {
+/* =========================================
+   05. SMALL TOP LABEL
+========================================= */
+
+.ending-eyebrow {
+    display: inline-block;
     margin-bottom: 22px;
-    color: #df86aa;
-    font-size: 45px;
-    animation: endingFloat 4s ease-in-out infinite;
+
+    color: #95654F;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
 }
 
-/* Heading */
 
-.ending-title {
-    margin-bottom: 22px;
-    color: #b94f7e;
+/* =========================================
+   06. MAIN HEADING
+========================================= */
 
-    font-size: clamp(35px, 6vw, 60px);
-    line-height: 1.2;
-    font-weight: 800;
+.ending-content h2 {
+    margin: 0 0 22px;
+
+    color: #604334;
+
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 6vw, 55px);
+    font-weight: 600;
+    line-height: 1.3;
 }
 
-.ending-title span {
-    display: block;
-    margin-top: 8px;
-    color: #e58aaf;
-}
 
-/* Main message */
-
-.ending-message {
-    max-width: 620px;
-    margin: 0 auto;
-
-    color: #795c6d;
-    font-size: clamp(15px, 2.2vw, 18px);
-    line-height: 2;
-}
-
-/* Highlighted friendship words */
-
-.ending-message strong {
-    color: #bd5f89;
-    font-weight: 750;
-}
-
-/* Decorative divider */
+/* =========================================
+   07. DECORATIVE DIVIDER
+========================================= */
 
 .ending-divider {
     display: flex;
@@ -129,7 +178,7 @@
 
     margin: 30px auto;
 
-    color: #df86aa;
+    color: #A47760;
     font-size: 18px;
 }
 
@@ -138,69 +187,142 @@
     content: "";
     width: 65px;
     height: 1px;
-    background: #efc3d5;
+    background: #DCC2B4;
 }
 
-/* Final note */
 
-.ending-final-note {
+/* =========================================
+   08. MAIN FRIENDSHIP MESSAGE
+========================================= */
+
+.ending-content p {
+    max-width: 620px;
+    margin: 0 auto 20px;
+
+    color: #493C35;
+
+    font-size: clamp(15px, 2.2vw, 18px);
+    font-weight: 400;
+    line-height: 2;
+
+    opacity: 1;
+}
+
+
+/* =========================================
+   09. FRIENDSHIP HIGHLIGHT
+========================================= */
+
+.ending-content p strong {
+    color: #986344;
+    font-weight: 750;
+}
+
+
+/* =========================================
+   10. FINAL MESSAGE
+========================================= */
+
+.ending-content h3 {
+    margin: 30px 0 20px;
+
+    color: #704B37;
+
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 600;
+}
+
+
+/* =========================================
+   11. ENDING NAME
+========================================= */
+
+.ending-name {
     margin-top: 25px;
-    color: #bd6389;
-    font-size: 17px;
-    font-weight: 700;
-    letter-spacing: .3px;
+
+    color: #80583F;
+
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: .5px;
 }
 
-/* Footer */
+
+/* =========================================
+   12. FOOTER TEXT
+========================================= */
 
 .ending-footer {
     position: relative;
     z-index: 2;
-    margin-top: 35px;
-    color: #a7798e;
+
+    margin-top: 18px;
+
+    color: #65534A;
+
     font-size: 12px;
+    font-weight: 500;
     letter-spacing: 1px;
 }
 
-/* Floating decorations */
 
-.ending-decoration {
-    position: absolute;
-    z-index: 1;
-    pointer-events: none;
-    user-select: none;
+/* =========================================
+   13. BACK TO TOP BUTTON
+========================================= */
 
-    animation: endingFloat 6s ease-in-out infinite;
+.back-to-top-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    margin-top: 35px;
+    padding: 14px 27px;
+
+    border: 1px solid #A77960;
+    border-radius: 50px;
+
+    background: linear-gradient(135deg, #8C6048, #A8795E);
+
+    color: #FFFFFF;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 22px rgba(112,75,55,.18);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
 }
 
-.ending-decoration.one {
-    top: 12%;
-    left: 8%;
-    font-size: 45px;
+.back-to-top-button:hover {
+    transform: translateY(-4px);
+
+    background: linear-gradient(135deg, #704B37, #95684F);
+
+    box-shadow: 0 12px 28px rgba(112,75,55,.25);
 }
 
-.ending-decoration.two {
-    top: 18%;
-    right: 9%;
-    font-size: 35px;
-    animation-delay: -2s;
+.back-to-top-button:active {
+    transform: scale(.97);
 }
 
-.ending-decoration.three {
-    bottom: 12%;
-    left: 10%;
-    font-size: 35px;
-    animation-delay: -3s;
+.back-to-top-button:focus-visible {
+    outline: 3px solid #C69A80;
+    outline-offset: 4px;
 }
 
-.ending-decoration.four {
-    bottom: 10%;
-    right: 8%;
-    font-size: 45px;
-    animation-delay: -1s;
-}
 
-/* Animations */
+/* =========================================
+   14. ANIMATIONS
+========================================= */
 
 @keyframes endingAppear {
     from {
@@ -216,125 +338,120 @@
 
 @keyframes endingFloat {
     0%, 100% {
-        transform: translateY(0) rotate(-5deg);
+        transform: translateY(0) rotate(-4deg);
     }
 
     50% {
-        transform: translateY(-15px) rotate(7deg);
+        transform: translateY(-15px) rotate(5deg);
     }
 }
 
-/* Responsive */
+@keyframes endingTwinkle {
+    0%, 100% {
+        opacity: .35;
+        transform: scale(.95);
+    }
+
+    50% {
+        opacity: .9;
+        transform: scale(1.08);
+    }
+}
+
+@keyframes endingButterfly {
+    0%, 100% {
+        transform: translateY(0) translateX(-10px);
+    }
+
+    50% {
+        transform: translateY(-18px) translateX(10px);
+    }
+}
+
+
+/* =========================================
+   15. RESPONSIVE DESIGN
+========================================= */
 
 @media (max-width: 600px) {
+
     #ending-section {
         min-height: 80vh;
         padding: 75px 16px;
     }
 
-    .ending-container {
+    .ending-content {
         padding: 42px 20px;
         border-radius: 24px;
     }
 
-    .ending-message {
+    .ending-eyebrow {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .ending-content h2 {
+        font-size: clamp(29px, 8vw, 38px);
+    }
+
+    .ending-content p {
+        font-size: 15px;
         line-height: 1.85;
     }
 
-    .ending-decoration.one {
+    .ending-divider {
+        margin: 24px auto;
+    }
+
+    .ending-divider::before,
+    .ending-divider::after {
+        width: 40px;
+    }
+
+    .ending-content h3 {
+        font-size: 21px;
+    }
+
+    .ending-name {
+        font-size: 16px;
+    }
+
+    .ending-flowers {
         top: 4%;
-        left: 3%;
-        font-size: 28px;
+        font-size: 22px;
+        letter-spacing: 8px;
     }
 
-    .ending-decoration.two {
-        top: 5%;
-        right: 3%;
-        font-size: 27px;
+    .ending-stars {
+        font-size: 19px;
     }
 
-    .ending-decoration.three {
-        bottom: 3%;
-        left: 3%;
-        font-size: 27px;
+    .ending-butterflies {
+        bottom: 4%;
+        font-size: 24px;
     }
 
-    .ending-decoration.four {
-        bottom: 3%;
-        right: 3%;
-        font-size: 30px;
+    .back-to-top-button {
+        padding: 13px 22px;
+        font-size: 13px;
     }
 }
-
-/* Accessibility */
-
-@media (prefers-reduced-motion: reduce) {
-    .ending-container,
-    .ending-symbol,
-    .ending-decoration {
-        animation: none !important;
-    }
-}
-
-
 
 
 /* =========================================
-   ENDING PAGE — TEXT VISIBILITY FIX
+   16. ACCESSIBILITY
 ========================================= */
 
-/* Main ending heading */
-#ending-section .ending-title {
-    color: #B94F7E !important;
-    opacity: 1 !important;
-}
+@media (prefers-reduced-motion: reduce) {
 
-/* Heading highlighted text */
-#ending-section .ending-title span {
-    color: #C65385 !important;
-    opacity: 1 !important;
-}
+    .ending-content,
+    .ending-flowers,
+    .ending-stars,
+    .ending-butterflies {
+        animation: none !important;
+    }
 
-/* Small top label */
-#ending-section .ending-container > * {
-    opacity: 1;
-}
-
-/* Main friendship message */
-#ending-section .ending-message {
-    color: #704B61 !important;
-    opacity: 1 !important;
-}
-
-/* Bold/highlighted words */
-#ending-section .ending-message strong {
-    color: #B74779 !important;
-    opacity: 1 !important;
-}
-
-/* Final message */
-#ending-section .ending-final-note {
-    color: #A94373 !important;
-    opacity: 1 !important;
-}
-
-/* Footer text */
-#ending-section .ending-footer {
-    color: #76566A !important;
-    opacity: 1 !important;
-}
-
-/* Ending divider decoration */
-#ending-section .ending-divider {
-    color: #D16C99 !important;
-}
-
-/* Any paragraph inside ending section */
-#ending-section p {
-    opacity: 1 !important;
-}
-
-/* Make ending content readable */
-#ending-section .ending-container {
-    background: rgba(255, 255, 255, 0.82) !important;
+    .back-to-top-button {
+        transition: none;
+    }
 }
